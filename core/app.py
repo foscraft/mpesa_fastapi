@@ -63,5 +63,3 @@ async def payment_callback(callback_data: dict):
         # Payment failed
         result_desc = callback_data["Body"]["stkCallback"]["ResultDesc"]
         return {"status": "failed", "message": result_desc}
-
-# Run the app with: uvicorn app:app --reload
