@@ -27,24 +27,25 @@ pip install fastapi uvicorn requests pydantic
 ```
 3. **Expose Local Server** (for testing):
    - Install [ngrok](https://ngrok.com/) to expose your local server for callback URLs:
-     ```bash
-     ngrok http 8000
-     ```
+```bash
+ngrok http 8000
+```
 
 ## Installation
 1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/mpesa-fastapi.git
-   cd mpesa-fastapi
 
-
+```bash
+git clone https://github.com/foscraft/mpesa_fastapi.git
+cd pesa_fastapi
+```
 2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Create a requirements.txt file with:
+3. **Create a requirements.txt file with:**
+
 ```
 fastapi
 uvicorn
