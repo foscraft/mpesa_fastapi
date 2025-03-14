@@ -75,13 +75,13 @@ Replace the values with your actual credentials. For sandbox testing, use the pr
 ## Usage
 ### Run the FastAPI Server:
 ```sh
-python main.py
+python core/app.py
 ```
 The server will start at `http://127.0.0.1:8000`.
 
 Use `--reload` for development to enable auto-reload on code changes:
 ```sh
-uvicorn main:app --reload
+uvicorn core.app:app --reload
 ```
 
 ### Expose the Server with Ngrok:
@@ -113,6 +113,7 @@ Check your phone for the STK Push prompt and enter your M-Pesa PIN to complete t
 M-Pesa will send a response to the `/callback/` endpoint after the transaction is processed.
 
 Example success response:
+
 ```json
 {
   "status": "success",
