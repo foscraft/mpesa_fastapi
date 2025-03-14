@@ -36,15 +36,12 @@ async def initiate_payment(payment: PaymentRequest):
             "Authorization": f"Bearer {access_token}",
             "Content-Type": "application/json"
         }
-        response = requests.post(STK_PUSH_URL, json=payload, headers=headers)
-        
+        response = requests.post(STK_PUSH_URL, json=payload, headers=headers, timeout=60)
         if response.status_code != 200:
-            raise HTTPException(status_code=500, detail="Failed to initiate STK Push")
-        
+            raise HTTPException(status_code=500, detail="Failed to initiate STK Push")       
         return response.json()
-    
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except requests.exceptions.Timeout as e:
+        raise HTTPException(status_code=504, detail="Request timed out") from e
 
 @app.post("/callback/")
 async def payment_callback(callback_data: dict):
