@@ -87,7 +87,7 @@ async def initiate_payment(payment: PaymentRequest):
 @app.post("/callback/")
 async def payment_callback(callback_data: CallbackData):
     """Handle M-Pesa callback response."""
-    logger.info("Callback received: %s", callback_data.dict())
+    logger.info("Callback received: %s", callback_data.model_dump())
 
     # Extract callback details
     stk_callback = callback_data.Body.stkCallback
